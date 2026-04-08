@@ -387,52 +387,40 @@ tailwind.config = {
     <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4">Vyberte si svoj lístok</h2>
     <p class="text-on-surface-variant">Všetky ceny sú uvádzané bez DPH.</p>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <!-- Early Bird -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <!-- Štandard -->
     <div class="p-8 bg-surface-container-low rounded-xl ghost-border flex flex-col hover:border-primary/30 transition-all">
-      <h3 class="font-headline font-bold text-2xl uppercase text-white mb-4">Early Bird</h3>
+      <h3 class="font-headline font-bold text-2xl uppercase text-white mb-4">Štandard</h3>
       <div class="mb-8">
-        <span class="text-4xl font-headline font-black text-white">99 €</span>
-        <p class="text-xs text-on-surface-variant uppercase font-label tracking-widest mt-1">Dostupné do 1. júla 2026</p>
+        <span class="text-4xl font-headline font-black text-white">70 €</span>
+        <p class="text-xs text-on-surface-variant uppercase font-label tracking-widest mt-1">bez DPH</p>
       </div>
       <ul class="space-y-4 mb-12 flex-grow">
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Vstup na všetky prednášky</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Coffee break &amp; Networking</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Digitálne materiály</li>
-        <li class="flex items-center gap-3 text-sm opacity-30"><span class="material-symbols-outlined text-lg">cancel</span> Business obed</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Prednášková časť</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Coffeebreak &amp; obed</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Wellness a Spa</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Večera</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Večerný program</li>
       </ul>
       <button class="w-full py-4 ghost-border rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all">Kúpiť Teraz</button>
     </div>
-    <!-- Standard Pass (Active) -->
+    <!-- Premium -->
     <div class="p-8 bg-surface-container-highest rounded-xl border-2 border-primary/50 flex flex-col relative scale-105 z-10 atmospheric-glow">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-label text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Najpopulárnejšie</div>
-      <h3 class="font-headline font-bold text-2xl uppercase text-white mb-4">Standard Pass</h3>
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-label text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Odporúčame</div>
+      <h3 class="font-headline font-bold text-2xl uppercase text-white mb-4">Premium</h3>
       <div class="mb-8">
-        <span class="text-4xl font-headline font-black text-white">149 €</span>
-        <p class="text-xs text-on-surface-variant uppercase font-label tracking-widest mt-1">Bežná predajná cena</p>
+        <span class="text-4xl font-headline font-black text-white">100 €</span>
+        <p class="text-xs text-on-surface-variant uppercase font-label tracking-widest mt-1">bez DPH</p>
       </div>
       <ul class="space-y-4 mb-12 flex-grow">
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Vstup na všetky prednášky</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Coffee break &amp; Networking</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Kompletné digitálne materiály</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Business obed v reštaurácii</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Prednášková časť</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Coffeebreak &amp; obed</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Wellness a Spa</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Večera</li>
+        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Večerný program</li>
       </ul>
+      <p class="text-xs text-on-surface-variant mb-6 text-center">Ubytovanie nie je zahrnuté v cene.</p>
       <button class="w-full py-4 primary-gradient text-white rounded-xl font-headline font-bold uppercase tracking-widest hover:opacity-90 transition-all">Kúpiť Teraz</button>
-    </div>
-    <!-- VIP Premium -->
-    <div class="p-8 bg-surface-container-low rounded-xl ghost-border flex flex-col hover:border-primary/30 transition-all">
-      <h3 class="font-headline font-bold text-2xl uppercase text-white mb-4">VIP Premium</h3>
-      <div class="mb-8">
-        <span class="text-4xl font-headline font-black text-white">299 €</span>
-        <p class="text-xs text-on-surface-variant uppercase font-label tracking-widest mt-1">Limitovaný počet 20ks</p>
-      </div>
-      <ul class="space-y-4 mb-12 flex-grow">
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Všetko v balíku Standard</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> VIP Networking večera</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Ubytovanie v hoteli Aphrodite</li>
-        <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Osobné stretnutie s rečníkmi</li>
-      </ul>
-      <button class="w-full py-4 ghost-border rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all">Kúpiť Teraz</button>
     </div>
   </div>
 </section>
