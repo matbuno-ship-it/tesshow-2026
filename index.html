@@ -163,7 +163,7 @@ tailwind.config = {
 }
 </style>
 </head>
-<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white scroll-smooth">
 
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-black/60 flex justify-between items-center px-8 py-4 max-w-full">
@@ -178,7 +178,7 @@ tailwind.config = {
     <a class="font-headline tracking-tight uppercase text-[#e0bfbb] hover:text-white transition-colors" href="#partners">Partneri</a>
   </div>
   <div class="flex items-center gap-6">
-    <button class="primary-gradient text-on-primary-fixed font-headline font-bold px-6 py-2 rounded-xl uppercase tracking-wider atmospheric-glow hover:opacity-80 transition-all active:scale-95">Registrácia</button>
+    <a href="#tickets" class="primary-gradient text-on-primary-fixed font-headline font-bold px-6 py-2 rounded-xl uppercase tracking-wider atmospheric-glow hover:opacity-80 transition-all active:scale-95 inline-block">Registrácia</a>
   </div>
 </nav>
 
@@ -216,8 +216,8 @@ tailwind.config = {
       </div>
     </div>
     <div class="flex flex-col sm:flex-row justify-center gap-6 pointer-events-auto">
-      <button class="primary-gradient text-white px-10 py-5 rounded-xl font-headline font-bold text-lg uppercase tracking-widest atmospheric-glow hover:opacity-90 transition-all">Kúpiť lístok</button>
-      <button class="ghost-border text-white px-10 py-5 rounded-xl font-headline font-bold text-lg uppercase tracking-widest hover:bg-white/5 transition-all">Pozrieť program</button>
+      <a href="#tickets" class="primary-gradient text-white px-10 py-5 rounded-xl font-headline font-bold text-lg uppercase tracking-widest atmospheric-glow hover:opacity-90 transition-all inline-block text-center">Kúpiť lístok</a>
+      <a href="#program" class="ghost-border text-white px-10 py-5 rounded-xl font-headline font-bold text-lg uppercase tracking-widest hover:bg-white/5 transition-all inline-block text-center">Pozrieť program</a>
     </div>
   </div>
 </section>
@@ -273,10 +273,10 @@ tailwind.config = {
         <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">Program Konferencie</h2>
         <p class="text-on-surface-variant max-w-xl mt-4">Pripravili sme pre vás intenzívny deň plný prednášok, workshopov a networkingu s tými najlepšími v odbore.</p>
       </div>
-      <button class="flex items-center gap-2 text-primary font-headline font-bold uppercase tracking-widest border-b border-primary pb-2 hover:opacity-70 transition-all">
+      <a href="#" class="flex items-center gap-2 text-primary font-headline font-bold uppercase tracking-widest border-b border-primary pb-2 hover:opacity-70 transition-all">
         <span>Stiahnuť PDF Program</span>
         <span class="material-symbols-outlined">download</span>
-      </button>
+      </a>
     </div>
     <div class="space-y-4">
       <!-- Registrácia -->
@@ -518,7 +518,7 @@ tailwind.config = {
         <li class="flex items-center gap-3 text-sm opacity-30"><span class="material-symbols-outlined text-lg">cancel</span> Večera</li>
         <li class="flex items-center gap-3 text-sm opacity-30"><span class="material-symbols-outlined text-lg">cancel</span> Večerný program</li>
       </ul>
-      <button class="w-full py-4 ghost-border rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all">Kúpiť lístok</button>
+      <a href="https://www.tesshop.sk" target="_blank" rel="noopener" class="w-full py-4 ghost-border rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all block text-center">Kúpiť lístok</a>
     </div>
     <!-- Premium -->
     <div class="p-8 bg-surface-container-highest rounded-xl border-2 border-primary/50 flex flex-col relative scale-105 z-10 atmospheric-glow">
@@ -537,7 +537,7 @@ tailwind.config = {
         <li class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-primary text-lg">check_circle</span> Večerný program</li>
       </ul>
       <p class="text-xs text-on-surface-variant mb-6 text-center">Ubytovanie nie je zahrnuté v cene.</p>
-      <button class="w-full py-4 primary-gradient text-white rounded-xl font-headline font-bold uppercase tracking-widest hover:opacity-90 transition-all">Kúpiť lístok</button>
+      <a href="https://www.tesshop.sk" target="_blank" rel="noopener" class="w-full py-4 primary-gradient text-white rounded-xl font-headline font-bold uppercase tracking-widest hover:opacity-90 transition-all block text-center">Kúpiť lístok</a>
     </div>
   </div>
 </section>
@@ -659,9 +659,9 @@ tailwind.config = {
     </div>
   </div>
   <div class="flex w-full justify-center">
-    <button class="ghost-border text-white px-8 py-3 rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+    <a href="https://tesshow.sk/#gallery" target="_blank" rel="noopener" class="ghost-border text-white px-8 py-3 rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all inline-block">
       Zobraziť všetky fotky
-    </button>
+    </a>
   </div>
 </section>
 
@@ -723,19 +723,19 @@ tailwind.config = {
       </p>
     </div>
     <div class="flex flex-wrap justify-center gap-8 font-body text-sm tracking-wide">
-      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="#">Ochrana osobných údajov</a>
-      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="#">Obchodné podmienky</a>
-      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="#">Pre médiá</a>
-      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="#">Kontakt</a>
+      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="https://tesshow.sk/ochrana-osobnych-udajov/" target="_blank" rel="noopener">Ochrana osobných údajov</a>
+      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="https://tesshow.sk/obchodne-podmienky/" target="_blank" rel="noopener">Obchodné podmienky</a>
+      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="mailto:fabulova@tes-slovakia.sk">Pre médiá</a>
+      <a class="text-[#e0bfbb]/60 hover:text-[#ffb3ac] transition-colors" href="mailto:fabulova@tes-slovakia.sk">Kontakt</a>
     </div>
     <div class="flex items-center gap-4">
-      <a class="w-10 h-10 rounded-full ghost-border flex items-center justify-center text-white hover:text-primary transition-all" href="#" aria-label="LinkedIn">
+      <a class="w-10 h-10 rounded-full ghost-border flex items-center justify-center text-white hover:text-primary transition-all" href="https://www.linkedin.com/company/tesshow" target="_blank" rel="noopener" aria-label="LinkedIn">
         <span class="material-symbols-outlined text-lg">alternate_email</span>
       </a>
-      <a class="w-10 h-10 rounded-full ghost-border flex items-center justify-center text-white hover:text-primary transition-all" href="#" aria-label="Facebook">
+      <a class="w-10 h-10 rounded-full ghost-border flex items-center justify-center text-white hover:text-primary transition-all" href="https://www.facebook.com/tesshow" target="_blank" rel="noopener" aria-label="Facebook">
         <span class="material-symbols-outlined text-lg">group</span>
       </a>
-      <a class="w-10 h-10 rounded-full ghost-border flex items-center justify-center text-white hover:text-primary transition-all" href="#" aria-label="Instagram">
+      <a class="w-10 h-10 rounded-full ghost-border flex items-center justify-center text-white hover:text-primary transition-all" href="https://www.instagram.com/tesshow" target="_blank" rel="noopener" aria-label="Instagram">
         <span class="material-symbols-outlined text-lg">photo_camera</span>
       </a>
     </div>
