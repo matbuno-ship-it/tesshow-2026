@@ -1,0 +1,16 @@
+{
+  "name": "tesshow-2026",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "screenshot": "node screenshot.mjs http://localhost:3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "TESSHOW 2026 - 20. ročník konferencie",
+  "dependencies": {
+    "puppeteer": "^24.40.0"
+  }
+}
