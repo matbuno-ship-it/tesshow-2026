@@ -8,7 +8,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Three.js loaded lazily on desktop only (see bottom of page) -->
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -970,11 +970,15 @@ menuBtn.addEventListener('click', function() {
 })();
 </script>
 
-<!-- GLSL Hills Background Script -->
+<!-- GLSL Hills Background Script — desktop only, lazy loaded -->
 <script>
 (function() {
-  const canvas = document.getElementById('glsl-hills-canvas');
-  if (!canvas) return;
+  // Skip on mobile/tablet (< 768px)
+  if (window.innerWidth < 768) return;
+
+  function initGLSL() {
+    const canvas = document.getElementById('glsl-hills-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
 
   const PLANE_SIZE = 256;
   const SPEED = 0.5;
@@ -1133,9 +1137,18 @@ menuBtn.addEventListener('click', function() {
     requestAnimationFrame(renderLoop);
   }
 
-  resize();
-  window.addEventListener('resize', resize);
-  renderLoop();
+    resize();
+    window.addEventListener('resize', resize);
+    renderLoop();
+  }
+
+  // Lazy-load Three.js after page load
+  window.addEventListener('load', function() {
+    var script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    script.onload = initGLSL;
+    document.head.appendChild(script);
+  });
 })();
 </script>
 </body>
