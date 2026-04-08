@@ -116,11 +116,7 @@ tailwind.config = {
   display: flex;
   gap: 3rem;
   padding-right: 3rem;
-  animation: logo-cloud-scroll 45s linear infinite;
-  transition: animation-duration 0.5s ease;
-}
-.logo-cloud-track:hover .logo-cloud-slide {
-  animation-duration: 120s;
+  will-change: transform;
 }
 .logo-cloud-img {
   height: 3rem;
@@ -790,6 +786,36 @@ tailwind.config = {
     <p class="font-body text-sm tracking-wide text-[#e0bfbb]/60 uppercase">© 2026 TESSHOW — 20. ročník. Vytvoril <a href="https://martinbuno.com" class="hover:text-[#ffb3ac] transition-colors">martinbuno.com</a></p>
   </div>
 </footer>
+
+<!-- Logo Cloud Smooth Scroll Script -->
+<script>
+(function() {
+  var track = document.querySelector('.logo-cloud-track');
+  if (!track) return;
+  var slides = track.querySelectorAll('.logo-cloud-slide');
+  if (slides.length < 2) return;
+
+  var speed = 0.5; // px per frame (normal)
+  var targetSpeed = 0.5;
+  var slowSpeed = 0.12; // px per frame (hover)
+  var pos = 0;
+  var slideWidth = slides[0].scrollWidth;
+
+  function tick() {
+    // Smooth lerp toward target speed
+    speed += (targetSpeed - speed) * 0.03;
+    pos -= speed;
+    if (pos <= -slideWidth) pos += slideWidth;
+    track.style.transform = 'translateX(' + pos + 'px)';
+    requestAnimationFrame(tick);
+  }
+
+  track.addEventListener('mouseenter', function() { targetSpeed = slowSpeed; });
+  track.addEventListener('mouseleave', function() { targetSpeed = 0.5; });
+
+  requestAnimationFrame(tick);
+})();
+</script>
 
 <!-- Gallery Photo Spread Script -->
 <script>
