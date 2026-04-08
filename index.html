@@ -428,19 +428,23 @@ tailwind.config = {
 <!-- Accommodation Section -->
 <section class="py-32 bg-surface-container-low" id="accommodation">
   <div class="container mx-auto px-6">
-    <div class="flex flex-col lg:flex-row gap-16 items-center">
+    <div class="flex flex-col lg:flex-row gap-16 items-start">
       <div class="w-full lg:w-1/2">
         <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4">Ubytovanie</h2>
         <div class="h-1 w-24 primary-gradient mb-8"></div>
-        <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
-          Konferencia sa koná v luxusnom prostredí hotela Aphrodite Palace v Rajeckých Tepliciach. Rezervujte si pobyt priamo cez nás za zvýhodnené konferenčné ceny.
+        <p class="text-on-surface-variant text-lg leading-relaxed mb-4">
+          Potrebujete ubytovanie? Radi vám s tým pomôžeme.
+        </p>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-10">
+          Ubytovanie nie je zahrnuté v cene vstupenky. Rezerváciu vykonáte prostredníctvom formulára nižšie alebo kontaktujte <a href="mailto:fabulova@tes-slovakia.sk" class="text-primary hover:underline">fabulova@tes-slovakia.sk</a>.
         </p>
         <div class="space-y-6">
+          <!-- Aphrodite Palace - Dvojlôžková izba -->
           <div class="p-6 bg-surface-container rounded-xl ghost-border">
             <div class="flex justify-between items-center">
               <div>
-                <h4 class="font-headline font-bold text-lg uppercase text-white">Dvojlôžková izba</h4>
-                <p class="text-sm text-on-surface-variant">Pre 2 osoby, vrátane raňajok</p>
+                <h4 class="font-headline font-bold text-lg uppercase text-white">Aphrodite Palace — Dvojlôžková izba</h4>
+                <p class="text-sm text-on-surface-variant">3–4 osoby: ďalšia osoba 75 €</p>
               </div>
               <div class="text-right">
                 <span class="text-2xl font-headline font-black text-primary">120 €</span>
@@ -448,23 +452,12 @@ tailwind.config = {
               </div>
             </div>
           </div>
+          <!-- Aphrodite Palace - Jednolôžková izba -->
           <div class="p-6 bg-surface-container rounded-xl ghost-border">
             <div class="flex justify-between items-center">
               <div>
-                <h4 class="font-headline font-bold text-lg uppercase text-white">Jednolôžková izba Standard</h4>
-                <p class="text-sm text-on-surface-variant">Pre 1 osobu, vrátane raňajok</p>
-              </div>
-              <div class="text-right">
-                <span class="text-2xl font-headline font-black text-primary">120 €</span>
-                <p class="text-[10px] text-on-surface-variant uppercase font-label tracking-widest">/ osoba / noc</p>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 bg-surface-container rounded-xl ghost-border">
-            <div class="flex justify-between items-center">
-              <div>
-                <h4 class="font-headline font-bold text-lg uppercase text-white">Jednolôžková izba Superior</h4>
-                <p class="text-sm text-on-surface-variant">Pre 1 osobu, vrátane raňajok a wellness</p>
+                <h4 class="font-headline font-bold text-lg uppercase text-white">Aphrodite Palace — Jednolôžková izba</h4>
+                <p class="text-sm text-on-surface-variant">Pre 1 osobu</p>
               </div>
               <div class="text-right">
                 <span class="text-2xl font-headline font-black text-primary">185 €</span>
@@ -472,26 +465,94 @@ tailwind.config = {
               </div>
             </div>
           </div>
+          <!-- Aphrodite - Jednolôžková izba -->
           <div class="p-6 bg-surface-container rounded-xl ghost-border">
             <div class="flex justify-between items-center">
               <div>
-                <h4 class="font-headline font-bold text-lg uppercase text-white">Prístelka</h4>
-                <p class="text-sm text-on-surface-variant">Ďalšia osoba v izbe</p>
+                <h4 class="font-headline font-bold text-lg uppercase text-white">Aphrodite — Jednolôžková izba</h4>
+                <p class="text-sm text-on-surface-variant">Pre 1 osobu</p>
               </div>
               <div class="text-right">
-                <span class="text-2xl font-headline font-black text-primary">75 €</span>
+                <span class="text-2xl font-headline font-black text-primary">120 €</span>
                 <p class="text-[10px] text-on-surface-variant uppercase font-label tracking-widest">/ osoba / noc</p>
               </div>
             </div>
           </div>
         </div>
-        <button class="mt-10 primary-gradient text-white px-10 py-5 rounded-xl font-headline font-bold text-lg uppercase tracking-widest atmospheric-glow hover:opacity-90 transition-all">Rezervovať ubytovanie</button>
-      </div>
-      <div class="w-full lg:w-1/2 relative">
-        <div class="rounded-xl overflow-hidden">
-          <img class="w-full h-auto object-cover" alt="Hotel Aphrodite Palace, Rajecké Teplice" src="brand_assets/photos/accommodation.jpg"/>
+        <div class="mt-6">
+          <div class="rounded-xl overflow-hidden">
+            <img class="w-full h-auto object-cover" alt="Hotel Aphrodite Palace, Rajecké Teplice" src="brand_assets/photos/accommodation.jpg"/>
+          </div>
         </div>
-        <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+      <!-- Reservation Form -->
+      <div class="w-full lg:w-1/2">
+        <div class="p-8 bg-surface-container rounded-xl ghost-border">
+          <h3 class="font-headline font-bold text-2xl uppercase text-white mb-2">Rezervácia ubytovania</h3>
+          <p class="text-sm text-on-surface-variant mb-8">Vyplňte formulár a my sa vám ozveme s potvrdením.</p>
+          <form id="accommodation-form" class="space-y-6">
+            <!-- Meno a priezvisko -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-name">Meno a priezvisko</label>
+              <input type="text" id="acc-name" name="name" required placeholder="Ján Novák" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary/50 transition-colors font-body text-sm">
+            </div>
+            <!-- Email -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-email">E-mail</label>
+              <input type="email" id="acc-email" name="email" required placeholder="jan@firma.sk" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary/50 transition-colors font-body text-sm">
+            </div>
+            <!-- Telefón -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-phone">Telefón</label>
+              <input type="tel" id="acc-phone" name="phone" placeholder="+421 9XX XXX XXX" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary/50 transition-colors font-body text-sm">
+            </div>
+            <!-- Typ izby -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-room">Typ izby</label>
+              <select id="acc-room" name="room" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a88a87%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+                <option value="" disabled selected class="bg-[#1c1b1b]">Vyberte typ izby</option>
+                <option value="double-palace" class="bg-[#1c1b1b]">Aphrodite Palace — Dvojlôžková izba (120 €/os/noc)</option>
+                <option value="single-palace" class="bg-[#1c1b1b]">Aphrodite Palace — Jednolôžková izba (185 €/os/noc)</option>
+                <option value="single-aphrodite" class="bg-[#1c1b1b]">Aphrodite — Jednolôžková izba (120 €/os/noc)</option>
+              </select>
+            </div>
+            <!-- Počet osôb -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-persons">Počet osôb</label>
+              <select id="acc-persons" name="persons" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a88a87%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+                <option value="1" class="bg-[#1c1b1b]">1</option>
+                <option value="2" class="bg-[#1c1b1b]">2</option>
+                <option value="3" class="bg-[#1c1b1b]">3</option>
+                <option value="4" class="bg-[#1c1b1b]">4</option>
+              </select>
+            </div>
+            <!-- Typ izieb pri viac osobách -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-room-pref">Ak ste zvolili viac osôb, o aké izby máte záujem</label>
+              <select id="acc-room-pref" name="room_preference" class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a88a87%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
+                <option value="separate" class="bg-[#1c1b1b]">Samostatné izby</option>
+                <option value="shared" class="bg-[#1c1b1b]">Spoločná izba</option>
+              </select>
+            </div>
+            <!-- Dátum príchodu -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-checkin">Dátum príchodu</label>
+              <input type="date" id="acc-checkin" name="checkin" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm [color-scheme:dark]">
+            </div>
+            <!-- Dátum odchodu -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-checkout">Dátum odchodu</label>
+              <input type="date" id="acc-checkout" name="checkout" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm [color-scheme:dark]">
+            </div>
+            <!-- Poznámka -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-note">Poznámka</label>
+              <textarea id="acc-note" name="note" rows="3" placeholder="Špeciálne požiadavky..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary/50 transition-colors font-body text-sm resize-none"></textarea>
+            </div>
+            <!-- Submit -->
+            <button type="submit" class="w-full primary-gradient text-white py-4 rounded-xl font-headline font-bold uppercase tracking-widest atmospheric-glow hover:opacity-90 transition-all">Odoslať</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
