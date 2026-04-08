@@ -104,6 +104,10 @@ tailwind.config = {
 .partners-scroll:hover {
   animation-play-state: paused;
 }
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 /* Gallery photo styles */
 .gallery-photo {
   position: absolute;
@@ -665,8 +669,58 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- Partners Section -->
+<!-- Partners Orbit Section -->
 <section class="py-24 border-t border-white/5" id="partners">
+  <div class="relative max-w-6xl mx-auto flex items-center justify-between h-[30rem] ghost-border bg-surface-container overflow-hidden rounded-xl">
+    <!-- Left side: text -->
+    <div class="w-1/2 z-10 pl-10">
+      <h2 class="font-headline text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">
+        Naši <span class="text-primary">Partneri</span>
+      </h2>
+      <p class="text-on-surface-variant mb-6 max-w-lg text-sm leading-relaxed">
+        TESSHOW spája lídrov telekomunikačného priemyslu. Ďakujeme všetkým partnerom, ktorí robia túto konferenciu možnou už 20 rokov.
+      </p>
+      <a href="mailto:fabulova@tes-slovakia.sk" class="primary-gradient text-white px-6 py-3 rounded-xl font-headline font-bold uppercase tracking-widest text-sm atmospheric-glow hover:opacity-90 transition-all inline-block">Staňte sa partnerom</a>
+    </div>
+    <!-- Right side: Orbit animation -->
+    <div class="relative w-1/2 h-full flex items-center justify-start overflow-hidden">
+      <div class="relative flex items-center justify-center" style="width: 50rem; height: 50rem; transform: translateX(50%);" id="orbit-container">
+        <!-- Center logo -->
+        <div class="w-20 h-20 rounded-full bg-surface-container-high ghost-border flex items-center justify-center z-10">
+          <span class="font-headline font-bold text-lg text-white">TES</span>
+        </div>
+        <!-- Orbit 1 -->
+        <div class="absolute rounded-full border border-dotted border-outline-variant/30" style="width: 16rem; height: 16rem; animation: orbit-spin 18s linear infinite;">
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:100%;top:50%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-1.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:50%;top:0%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-2.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:0%;top:50%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-3.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:50%;top:100%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-4.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:85.4%;top:85.4%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-5.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+        </div>
+        <!-- Orbit 2 -->
+        <div class="absolute rounded-full border border-dotted border-outline-variant/30" style="width: 28rem; height: 28rem; animation: orbit-spin 26s linear infinite reverse;">
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:93.3%;top:75%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-6.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:75%;top:93.3%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-7.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:6.7%;top:25%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-8.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:50%;top:0%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-9.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:100%;top:50%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-10.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:25%;top:93.3%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-11.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+        </div>
+        <!-- Orbit 3 -->
+        <div class="absolute rounded-full border border-dotted border-outline-variant/30" style="width: 40rem; height: 40rem; animation: orbit-spin 34s linear infinite;">
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:100%;top:50%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-12.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:50%;top:0%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-13.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:0%;top:50%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-14.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:85.4%;top:85.4%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-15.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+          <div class="absolute bg-surface-container-high rounded-full p-1.5 shadow-md ghost-border" style="left:14.6%;top:85.4%;transform:translate(-50%,-50%)"><img src="brand_assets/partners/partner-16.png" class="w-8 h-8 object-contain brightness-200" alt="Partner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Scroll Section -->
+<section class="py-24 border-t border-white/5">
   <div class="container mx-auto px-6">
     <h3 class="text-center font-headline font-bold text-sm uppercase tracking-[0.3em] text-on-surface-variant/50 mb-16">Hlavní Partneri Konferencie</h3>
     <div class="overflow-hidden">
