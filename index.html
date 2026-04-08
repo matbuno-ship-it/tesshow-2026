@@ -100,9 +100,6 @@ tailwind.config = {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-.kinetic-pulse {
-  background: radial-gradient(circle at 50% 50%, rgba(244, 98, 90, 0.15) 0%, transparent 70%);
-}
 .atmospheric-glow {
   box-shadow: 0 0 40px -5px rgba(255, 179, 172, 0.1);
 }
@@ -111,20 +108,6 @@ tailwind.config = {
 }
 .ghost-border {
   border: 1px solid rgba(168, 138, 135, 0.15);
-}
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.partners-scroll {
-  animation: scroll-left 30s linear infinite;
-}
-.partners-scroll:hover {
-  animation-play-state: paused;
-}
-@keyframes logo-cloud-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
 }
 .logo-cloud-track {
   display: flex;
@@ -161,13 +144,16 @@ tailwind.config = {
   position: absolute;
   left: 0;
   top: 0;
-  width: 220px;
-  height: 220px;
+  width: 140px;
+  height: 140px;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
   touch-action: none;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+@media (min-width: 768px) {
+  .gallery-photo { width: 220px; height: 220px; }
 }
 .gallery-photo:active {
   cursor: grabbing;
@@ -272,7 +258,7 @@ tailwind.config = {
   <div class="relative z-10 container mx-auto px-4 sm:px-6 text-center pointer-events-none">
     <div class="inline-flex items-center gap-2 mb-4 md:mb-6 px-3 md:px-4 py-1 rounded-full bg-black/40 backdrop-blur-sm ghost-border pointer-events-auto">
       <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#f4625a]"></span>
-      <span class="text-[10px] md:text-xs font-label uppercase tracking-widest text-primary">20. ročník • 2026</span>
+      <span class="text-[11px] md:text-xs font-label uppercase tracking-widest text-primary">20. ročník • 2026</span>
     </div>
     <h1 class="font-headline font-extrabold text-[2.5rem] leading-[0.9] sm:text-6xl md:text-8xl lg:text-9xl tracking-tighter text-white uppercase md:leading-none mb-6 md:mb-8">
       OBJAVTE<br class="sm:hidden"/> BUDÚCNOSŤ<br/><span class="text-transparent bg-clip-text primary-gradient">TELEKOMUNIKÁCIÍ</span>
@@ -281,14 +267,14 @@ tailwind.config = {
       <div class="flex items-center gap-2 md:gap-3">
         <span class="material-symbols-outlined text-primary text-2xl md:text-3xl">calendar_today</span>
         <div class="text-left">
-          <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-on-surface-variant font-label">Dátum konania</p>
+          <p class="text-[11px] md:text-[11px] uppercase tracking-widest text-on-surface-variant font-label">Dátum konania</p>
           <p class="font-headline font-bold text-base md:text-xl uppercase">17. september 2026</p>
         </div>
       </div>
       <div class="flex items-center gap-2 md:gap-3">
         <span class="material-symbols-outlined text-primary text-2xl md:text-3xl">location_on</span>
         <div class="text-left">
-          <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-on-surface-variant font-label">Miesto</p>
+          <p class="text-[11px] md:text-[11px] uppercase tracking-widest text-on-surface-variant font-label">Miesto</p>
           <p class="font-headline font-bold text-base md:text-xl uppercase">Hotel Aphrodite, Rajecké Teplice</p>
         </div>
       </div>
@@ -307,10 +293,10 @@ tailwind.config = {
       <div class="w-full lg:w-1/2 relative">
         <div class="grid grid-cols-2 gap-4">
           <div class="aspect-square rounded-xl overflow-hidden mt-12">
-            <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="TESSHOW konferencia networking" src="brand_assets/photos/gallery-2.webp"/>
+            <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="TESSHOW konferencia networking" src="brand_assets/photos/gallery-2.webp" width="400" height="400" loading="lazy"/>
           </div>
           <div class="aspect-[3/4] rounded-xl overflow-hidden">
-            <img class="w-full h-full object-cover" alt="Optická infraštruktúra a technológie" src="brand_assets/photos/content-1.webp"/>
+            <img class="w-full h-full object-cover" alt="Optická infraštruktúra a technológie" src="brand_assets/photos/content-1.webp" width="400" height="533" loading="lazy"/>
           </div>
         </div>
         <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
@@ -368,13 +354,13 @@ tailwind.config = {
         <div class="md:col-span-2 text-2xl font-headline font-bold text-primary">09:00 - 09:10</div>
         <div class="md:col-span-7 py-4 md:py-0">
           <div class="flex items-center gap-2 mb-2">
-            <span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase">PRÍHOVOR</span>
+            <span class="bg-primary/20 text-primary text-[11px] px-2 py-0.5 rounded font-bold uppercase">PRÍHOVOR</span>
           </div>
           <h4 class="text-xl font-headline font-bold text-white uppercase">Otvorenie konferencie</h4>
           <p class="text-on-surface-variant text-sm">Ing. Karol Pilátik — TES-SLOVAKIA, s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">TES-SLOVAKIA</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">TES-SLOVAKIA</span>
         </div>
       </div>
       <!-- Prednáška 1 -->
@@ -385,7 +371,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Michal Ďurica — TES-SLOVAKIA s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">TES-SLOVAKIA</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">TES-SLOVAKIA</span>
         </div>
       </div>
       <!-- Prednáška 2 -->
@@ -396,7 +382,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">David Kulda — 4NET.TV services s.r.o</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">4NET.TV</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">4NET.TV</span>
         </div>
       </div>
       <!-- Prednáška 3 -->
@@ -407,7 +393,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Tomasz Pawlak — FIBRAIN SP. Z O.O.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">FIBRAIN</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">FIBRAIN</span>
         </div>
       </div>
       <!-- Prednáška 4 -->
@@ -418,7 +404,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Radek Vývlečka — DURA-LINE CT, s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">DURA-LINE</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">DURA-LINE</span>
         </div>
       </div>
       <!-- Coffee break -->
@@ -435,7 +421,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">David Seidl — MICOS TELCOM s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">MICOS TELCOM</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">MICOS TELCOM</span>
         </div>
       </div>
       <!-- Prednáška 6 -->
@@ -446,7 +432,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Michal Suchý — sledovanitv.cz s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">sledovanitv.cz</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">sledovanitv.cz</span>
         </div>
       </div>
       <!-- Prednáška 7 -->
@@ -457,7 +443,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Ján Horáček — Huawei</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Huawei</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Huawei</span>
         </div>
       </div>
       <!-- Prednáška 8 -->
@@ -468,7 +454,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Ľuboš Parízek — ARPA, s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">ARPA</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">ARPA</span>
         </div>
       </div>
       <!-- Obed -->
@@ -485,7 +471,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">JUDr. Martin Samec — Advokát</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Právo</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Právo</span>
         </div>
       </div>
       <!-- Prednáška 10 -->
@@ -496,7 +482,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Roman Štemberk — PROFIcomms s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">PROFIcomms</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">PROFIcomms</span>
         </div>
       </div>
       <!-- Prednáška 11 -->
@@ -507,7 +493,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Jiří Vejman — TP-LINK Czech, s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">TP-LINK</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">TP-LINK</span>
         </div>
       </div>
       <!-- Prednáška 12 -->
@@ -518,7 +504,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Robert Beránek — Canal+ Distribution Czech Republic s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Canal+</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Canal+</span>
         </div>
       </div>
       <!-- Prednáška 13 -->
@@ -529,7 +515,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Július Rebeťák — ALFEUS, spol. s r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">ALFEUS</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">ALFEUS</span>
         </div>
       </div>
       <!-- Prednáška 14 -->
@@ -537,13 +523,13 @@ tailwind.config = {
         <div class="md:col-span-2 text-2xl font-headline font-bold text-primary">15:00 - 15:20</div>
         <div class="md:col-span-7 py-4 md:py-0">
           <div class="flex items-center gap-2 mb-2">
-            <span class="bg-secondary/20 text-secondary text-[10px] px-2 py-0.5 rounded font-bold uppercase">KVÍZ</span>
+            <span class="bg-secondary/20 text-secondary text-[11px] px-2 py-0.5 rounded font-bold uppercase">KVÍZ</span>
           </div>
           <h4 class="text-xl font-headline font-bold text-white uppercase">Zábavný kvíz o ceny LEO TV MEDIA</h4>
           <p class="text-on-surface-variant text-sm">Martin Laštovička — LEO TV</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">LEO TV</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">LEO TV</span>
         </div>
       </div>
       <!-- Prednáška 15 -->
@@ -554,7 +540,7 @@ tailwind.config = {
           <p class="text-on-surface-variant text-sm">Tibor Vlček — KELCOM INTERNATIONAL s.r.o.</p>
         </div>
         <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">KELCOM</span>
+          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">KELCOM</span>
         </div>
       </div>
       <!-- Večera -->
@@ -600,7 +586,7 @@ tailwind.config = {
     </div>
     <!-- Premium -->
     <div class="p-8 bg-surface-container-highest rounded-xl border-2 border-primary/50 flex flex-col relative scale-105 z-10 atmospheric-glow">
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-label text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Odporúčame</div>
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-label text-[11px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Odporúčame</div>
       <h3 class="font-headline font-bold text-2xl uppercase text-white mb-4">Premium</h3>
       <div class="mb-4">
         <span class="text-5xl font-headline font-black text-white">€100</span>
@@ -634,25 +620,25 @@ tailwind.config = {
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div class="p-4 bg-surface-container rounded-xl ghost-border text-center">
             <span class="text-2xl font-headline font-black text-primary">120 €</span>
-            <p class="text-[10px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
+            <p class="text-[11px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
             <p class="text-xs text-white font-headline uppercase mt-2">Palace — Dvojlôžková</p>
-            <p class="text-[10px] text-on-surface-variant mt-1">ďalšia osoba 75 €</p>
+            <p class="text-[11px] text-on-surface-variant mt-1">ďalšia osoba 75 €</p>
           </div>
           <div class="p-4 bg-surface-container rounded-xl ghost-border text-center">
             <span class="text-2xl font-headline font-black text-primary">185 €</span>
-            <p class="text-[10px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
+            <p class="text-[11px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
             <p class="text-xs text-white font-headline uppercase mt-2">Palace — Jednolôžková</p>
           </div>
           <div class="p-4 bg-surface-container rounded-xl ghost-border text-center">
             <span class="text-2xl font-headline font-black text-primary">120 €</span>
-            <p class="text-[10px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
+            <p class="text-[11px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
             <p class="text-xs text-white font-headline uppercase mt-2">Aphrodite — Jednolôžková</p>
           </div>
         </div>
       </div>
       <div class="w-full lg:w-1/2">
         <div class="rounded-xl overflow-hidden max-h-[280px]">
-          <img class="w-full h-full object-cover" alt="Hotel Aphrodite Palace, Rajecké Teplice" src="brand_assets/photos/accommodation.jpg"/>
+          <img class="w-full h-full object-cover" alt="Hotel Aphrodite Palace, Rajecké Teplice" src="brand_assets/photos/accommodation.jpg" width="800" height="280" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -729,9 +715,9 @@ tailwind.config = {
     Fotogaléria <span class="text-primary-container">TESSHOW</span>
   </h2>
   <!-- Photo spread container -->
-  <div class="relative mb-8 h-[350px] w-full flex items-center justify-center" id="gallery-spread">
+  <div class="relative mb-8 h-[250px] md:h-[350px] w-full flex items-center justify-center" id="gallery-spread">
     <div class="relative flex w-full max-w-7xl justify-center opacity-0 transition-opacity duration-500" id="gallery-container">
-      <div class="relative h-[220px] w-[220px]" id="gallery-photos">
+      <div class="relative h-[140px] w-[140px] md:h-[220px] md:w-[220px]" id="gallery-photos">
         <!-- Photos are rendered by JS -->
       </div>
     </div>
@@ -890,12 +876,14 @@ menuBtn.addEventListener('click', function() {
 <!-- Gallery Photo Spread Script -->
 <script>
 (function() {
+  var isMobile = window.innerWidth < 768;
+  var scale = isMobile ? 0.55 : 1;
   const photos = [
-    { id: 1, order: 0, x: -320, y: 15, zIndex: 50, dir: 'left', src: 'brand_assets/photos/gallery-1.webp' },
-    { id: 2, order: 1, x: -160, y: 32, zIndex: 40, dir: 'left', src: 'brand_assets/photos/gallery-2.webp' },
-    { id: 3, order: 2, x: 0,    y: 8,  zIndex: 30, dir: 'right', src: 'brand_assets/photos/hero-1.webp' },
-    { id: 4, order: 3, x: 160,  y: 22, zIndex: 20, dir: 'right', src: 'brand_assets/photos/gallery-5.webp' },
-    { id: 5, order: 4, x: 320,  y: 44, zIndex: 10, dir: 'left', src: 'brand_assets/photos/gallery-8.webp' },
+    { id: 1, order: 0, x: -320 * scale, y: 15 * scale, zIndex: 50, dir: 'left', src: 'brand_assets/photos/gallery-1.webp' },
+    { id: 2, order: 1, x: -160 * scale, y: 32 * scale, zIndex: 40, dir: 'left', src: 'brand_assets/photos/gallery-2.webp' },
+    { id: 3, order: 2, x: 0,            y: 8 * scale,  zIndex: 30, dir: 'right', src: 'brand_assets/photos/hero-1.webp' },
+    { id: 4, order: 3, x: 160 * scale,  y: 22 * scale, zIndex: 20, dir: 'right', src: 'brand_assets/photos/gallery-5.webp' },
+    { id: 5, order: 4, x: 320 * scale,  y: 44 * scale, zIndex: 10, dir: 'left', src: 'brand_assets/photos/gallery-8.webp' },
   ];
 
   const container = document.getElementById('gallery-container');
