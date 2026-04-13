@@ -843,7 +843,7 @@ document.getElementById('accommodation-form').addEventListener('submit', functio
     note: document.getElementById('acc-note').value
   });
 
-  var url = 'https://script.google.com/macros/s/AKfycbyjCc3w_WMYF3ntMAkum9CEJcLV3r93NuQC2mx7xNOA9XJicvOM95jDHpgezgzvXkCc/exec?' + params.toString();
+  var url = 'https://script.google.com/macros/s/AKfycbw5qCHkWQwg_-jbYaBPORklmIG9MSvaLSbwe3ksvkih9fwt9_QcdcCbXSyfXkWljN3Y/exec?' + params.toString();
 
   fetch(url, { mode: 'no-cors' }).then(function() {
     success.classList.remove('hidden');
