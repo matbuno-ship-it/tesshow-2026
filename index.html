@@ -139,66 +139,6 @@ tailwind.config = {
 @media (min-width: 768px) {
   .logo-cloud-img { height: 3.5rem; max-width: 9rem; }
 }
-/* Gallery photo styles */
-.gallery-photo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 140px;
-  height: 140px;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: none;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-}
-@media (min-width: 768px) {
-  .gallery-photo { width: 220px; height: 220px; }
-}
-.gallery-photo:active {
-  cursor: grabbing;
-}
-.gallery-photo:hover {
-  transform: var(--hover-transform) !important;
-  z-index: 9999 !important;
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-}
-.gallery-photo .photo-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px -4px rgba(0,0,0,0.3);
-}
-.gallery-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 1.5rem;
-  pointer-events: none;
-}
-/* Spring-like entrance animation */
-@keyframes gallery-spring-in {
-  0% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-    opacity: 0;
-  }
-  30% {
-    opacity: 1;
-  }
-  70% {
-    transform: translate(var(--target-x), var(--target-y)) rotate(var(--target-rot)) scale(1.05);
-  }
-  85% {
-    transform: translate(var(--target-x), var(--target-y)) rotate(var(--target-rot)) scale(0.98);
-  }
-  100% {
-    transform: translate(var(--target-x), var(--target-y)) rotate(var(--target-rot)) scale(1);
-  }
-}
-.gallery-photo.animate-in {
-  animation: gallery-spring-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
 /* Mobile menu hamburger animation */
 .mobile-menu-open .mobile-hamburger-line:nth-child(1) {
   transform: translateY(4px) rotate(45deg);
@@ -707,27 +647,63 @@ tailwind.config = {
 </section>
 
 <!-- Gallery Section -->
-<section class="pt-40 pb-32 relative overflow-hidden" id="gallery">
-  <!-- Grid background pattern -->
-  <div class="absolute inset-0 top-[200px] -z-10 h-[300px] w-full bg-transparent opacity-20" style="background-image: linear-gradient(to right, #a8a29e 1px, transparent 1px), linear-gradient(to bottom, #a8a29e 1px, transparent 1px); background-size: 3rem 3rem; -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%); mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, #000 70%, transparent 110%);"></div>
-  <p class="text-xs md:text-sm my-2 text-center font-light uppercase tracking-widest text-on-surface-variant/60 font-label">
-    Cesta cez vizuálne príbehy
-  </p>
-  <h2 class="z-20 mx-auto max-w-2xl py-3 text-center text-4xl md:text-7xl font-headline font-black uppercase tracking-tighter bg-gradient-to-r from-white/90 via-white to-white/90 bg-clip-text text-transparent">
-    Fotogaléria <span class="text-primary-container">TESSHOW</span>
-  </h2>
-  <!-- Photo spread container -->
-  <div class="relative mb-8 h-[250px] md:h-[350px] w-full flex items-center justify-center" id="gallery-spread">
-    <div class="relative flex w-full max-w-7xl justify-center opacity-0 transition-opacity duration-500" id="gallery-container">
-      <div class="relative h-[140px] w-[140px] md:h-[220px] md:w-[220px]" id="gallery-photos">
-        <!-- Photos are rendered by JS -->
+<section class="py-24" id="gallery">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-xs md:text-sm mb-2 font-light uppercase tracking-widest text-on-surface-variant/60 font-label">Atmosféra z predchádzajúcich ročníkov</p>
+      <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">Fotogaléria</h2>
+    </div>
+    <!-- Bento grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
+      <!-- Large featured -->
+      <div class="col-span-2 row-span-2 relative rounded-xl overflow-hidden group cursor-pointer">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/hero-1.webp" alt="TESSHOW konferencia" width="600" height="600" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-0 left-0 p-4 md:p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <p class="text-white font-headline font-bold text-sm md:text-base uppercase">Hlavná sála</p>
+          <p class="text-white/60 text-xs">TESSHOW 2025</p>
+        </div>
+      </div>
+      <!-- Small tiles -->
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer aspect-square">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/gallery-1.webp" alt="TESSHOW prednáška" width="300" height="300" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer aspect-square">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/gallery-2.webp" alt="TESSHOW networking" width="300" height="300" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer aspect-square">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/gallery-3.webp" alt="TESSHOW technológie" width="300" height="300" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      <div class="relative rounded-xl overflow-hidden group cursor-pointer aspect-square">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/gallery-4.webp" alt="TESSHOW diskusia" width="300" height="300" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      </div>
+      <!-- Wide bottom -->
+      <div class="col-span-2 relative rounded-xl overflow-hidden group cursor-pointer aspect-[2/1]">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/gallery-5.webp" alt="TESSHOW sála" width="600" height="300" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-0 left-0 p-4 md:p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <p class="text-white font-headline font-bold text-sm md:text-base uppercase">Networking</p>
+          <p class="text-white/60 text-xs">TESSHOW 2025</p>
+        </div>
+      </div>
+      <div class="col-span-2 relative rounded-xl overflow-hidden group cursor-pointer aspect-[2/1]">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="brand_assets/photos/gallery-8.webp" alt="TESSHOW večer" width="600" height="300" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-0 left-0 p-4 md:p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <p class="text-white font-headline font-bold text-sm md:text-base uppercase">Večerný program</p>
+          <p class="text-white/60 text-xs">TESSHOW 2025</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="flex w-full justify-center">
-    <a href="https://tesshow.sk/#gallery" target="_blank" rel="noopener" class="ghost-border text-white px-8 py-3 rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all inline-block">
-      Zobraziť všetky fotky
-    </a>
+    <div class="flex w-full justify-center mt-10">
+      <a href="https://tesshow.sk/#gallery" target="_blank" rel="noopener" class="ghost-border text-white px-8 py-3 rounded-xl font-headline font-bold uppercase tracking-widest hover:bg-white/5 transition-all inline-block">
+        Zobraziť všetky fotky
+      </a>
+    </div>
   </div>
 </section>
 
@@ -915,108 +891,6 @@ menuBtn.addEventListener('click', function() {
 })();
 </script>
 
-<!-- Gallery Photo Spread Script -->
-<script>
-(function() {
-  var isMobile = window.innerWidth < 768;
-  var scale = isMobile ? 0.55 : 1;
-  const photos = [
-    { id: 1, order: 0, x: -320 * scale, y: 15 * scale, zIndex: 50, dir: 'left', src: 'brand_assets/photos/gallery-1.webp' },
-    { id: 2, order: 1, x: -160 * scale, y: 32 * scale, zIndex: 40, dir: 'left', src: 'brand_assets/photos/gallery-2.webp' },
-    { id: 3, order: 2, x: 0,            y: 8 * scale,  zIndex: 30, dir: 'right', src: 'brand_assets/photos/hero-1.webp' },
-    { id: 4, order: 3, x: 160 * scale,  y: 22 * scale, zIndex: 20, dir: 'right', src: 'brand_assets/photos/gallery-5.webp' },
-    { id: 5, order: 4, x: 320 * scale,  y: 44 * scale, zIndex: 10, dir: 'left', src: 'brand_assets/photos/gallery-8.webp' },
-  ];
-
-  const container = document.getElementById('gallery-container');
-  const photosEl = document.getElementById('gallery-photos');
-  if (!container || !photosEl) return;
-
-  function randRange(min, max) { return Math.random() * (max - min) + min; }
-
-  // Create photo elements (reversed for z-index stacking)
-  [...photos].reverse().forEach(function(photo) {
-    var rot = randRange(1, 4) * (photo.dir === 'left' ? -1 : 1);
-    var hoverScale = 1.1;
-    var hoverRot = 2 * (photo.dir === 'left' ? -1 : 1);
-
-    var div = document.createElement('div');
-    div.className = 'gallery-photo';
-    div.style.zIndex = photo.zIndex;
-    div.style.setProperty('--target-x', photo.x + 'px');
-    div.style.setProperty('--target-y', photo.y + 'px');
-    div.style.setProperty('--target-rot', rot + 'deg');
-    div.style.setProperty('--hover-transform',
-      'translate(' + photo.x + 'px, ' + photo.y + 'px) rotate(' + hoverRot + 'deg) scale(' + hoverScale + ')');
-    div.style.animationDelay = (photo.order * 0.15) + 's';
-    div.dataset.baseTransform = 'translate(' + photo.x + 'px, ' + photo.y + 'px) rotate(' + rot + 'deg) scale(1)';
-    div.dataset.x = photo.x;
-    div.dataset.y = photo.y;
-
-    var inner = document.createElement('div');
-    inner.className = 'photo-inner';
-    var img = document.createElement('img');
-    img.src = photo.src;
-    img.alt = 'TESSHOW fotogaléria';
-    img.draggable = false;
-    inner.appendChild(img);
-    div.appendChild(inner);
-    photosEl.appendChild(div);
-
-    // Drag behavior
-    var isDragging = false;
-    var startX = 0, startY = 0, offsetX = 0, offsetY = 0;
-
-    div.addEventListener('pointerdown', function(e) {
-      isDragging = true;
-      div.style.transition = 'none';
-      div.style.zIndex = 9999;
-      div.style.transform = div.dataset.baseTransform.replace('scale(1)', 'scale(1.1)');
-      startX = e.clientX;
-      startY = e.clientY;
-      offsetX = 0;
-      offsetY = 0;
-      div.setPointerCapture(e.pointerId);
-    });
-
-    div.addEventListener('pointermove', function(e) {
-      if (!isDragging) return;
-      offsetX = e.clientX - startX;
-      offsetY = e.clientY - startY;
-      var bx = parseFloat(div.dataset.x);
-      var by = parseFloat(photo.y);
-      div.style.transform = 'translate(' + (bx + offsetX) + 'px, ' + (by + offsetY) + 'px) rotate(' + rot + 'deg) scale(1.1)';
-    });
-
-    function endDrag() {
-      if (!isDragging) return;
-      isDragging = false;
-      div.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease';
-      div.style.transform = div.dataset.baseTransform;
-      div.style.zIndex = photo.zIndex;
-    }
-
-    div.addEventListener('pointerup', endDrag);
-    div.addEventListener('pointercancel', endDrag);
-  });
-
-  // Intersection Observer to trigger animation when visible
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        container.style.opacity = '1';
-        setTimeout(function() {
-          var allPhotos = photosEl.querySelectorAll('.gallery-photo');
-          allPhotos.forEach(function(p) { p.classList.add('animate-in'); });
-        }, 400);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(document.getElementById('gallery-spread'));
-})();
-</script>
 
 <!-- GLSL Hills Background Script — desktop only, lazy loaded -->
 <script>
