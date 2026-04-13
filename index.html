@@ -831,7 +831,7 @@ document.getElementById('accommodation-form').addEventListener('submit', functio
   btn.disabled = true;
   btn.style.opacity = '0.5';
 
-  var data = {
+  var params = new URLSearchParams({
     name: document.getElementById('acc-name').value,
     email: document.getElementById('acc-email').value,
     phone: document.getElementById('acc-phone').value,
@@ -841,14 +841,11 @@ document.getElementById('accommodation-form').addEventListener('submit', functio
     checkin: document.getElementById('acc-checkin').value,
     checkout: document.getElementById('acc-checkout').value,
     note: document.getElementById('acc-note').value
-  };
+  });
 
-  fetch('https://script.google.com/macros/s/AKfycbyjCc3w_WMYF3ntMAkum9CEJcLV3r93NuQC2mx7xNOA9XJicvOM95jDHpgezgzvXkCc/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).then(function() {
+  var url = 'https://script.google.com/macros/s/AKfycbyjCc3w_WMYF3ntMAkum9CEJcLV3r93NuQC2mx7xNOA9XJicvOM95jDHpgezgzvXkCc/exec?' + params.toString();
+
+  fetch(url, { mode: 'no-cors' }).then(function() {
     success.classList.remove('hidden');
     e.target.reset();
   }).catch(function() {
