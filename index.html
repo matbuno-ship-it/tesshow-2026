@@ -100,12 +100,12 @@ tailwind.config = {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-@keyframes tesshow-sync-pulse {
+@keyframes tesshow-glow {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
 }
 .hero-tesshow-pulse {
-  animation: tesshow-sync-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: tesshow-glow 5s ease-in-out infinite;
 }
 .atmospheric-glow {
   box-shadow: 0 0 40px -5px rgba(255, 179, 172, 0.1);
@@ -207,7 +207,7 @@ tailwind.config = {
   <div class="relative z-10 container mx-auto px-4 sm:px-6 text-center pointer-events-none">
     <div class="relative inline-flex items-center gap-2 mb-4 md:mb-6 px-3 md:px-4 py-1 rounded-full bg-black/40 backdrop-blur-sm ghost-border pointer-events-auto">
       <span class="hero-tesshow-pulse font-headline font-black text-[3rem] sm:text-[4rem] md:text-[5rem] uppercase tracking-tight leading-none text-white/[0.12] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none whitespace-nowrap">TESSHOW</span>
-      <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#f4625a]"></span>
+      <span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#f4625a]" style="animation: tesshow-glow 5s ease-in-out infinite;"></span>
       <span class="text-[11px] md:text-xs font-label uppercase tracking-widest text-primary">20. ročník • 2026</span>
     </div>
     <h1 class="font-headline font-extrabold text-[2.5rem] leading-[0.9] sm:text-6xl md:text-8xl lg:text-9xl tracking-tighter text-white uppercase md:leading-none">
