@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&amp;display=swap');
+      .t { font-family: 'Saira Stencil One', sans-serif; font-weight: 700; font-size: 130px; fill: #ffb3ac; }
+    </style>
+  </defs>
+  <rect width="180" height="180" rx="32" fill="#131313"/>
+  <text x="90" y="135" class="t" text-anchor="middle">T</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&amp;family=Manrope:wght@500&amp;display=swap');
+      .tes { font-family: 'Saira Stencil One', sans-serif; font-weight: 400; font-size: 110px; }
+      .a { fill: #ffffff; }
+      .b { fill: #ffb3ac; }
+      .tag { font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 18px; fill: #e0bfbb; letter-spacing: 0.3em; }
+    </style>
+  </defs>
+  <text x="450" y="105" text-anchor="middle" class="tes">
+    <tspan class="a">TES</tspan><tspan class="b">SHOW</tspan>
+  </text>
+  <text x="450" y="155" text-anchor="middle" class="tag">20. ROČNÍK • 17. SEPTEMBER 2026</text>
+</svg>

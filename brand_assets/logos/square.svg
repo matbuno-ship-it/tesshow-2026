@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&amp;family=Manrope:wght@500;700&amp;display=swap');
+      .tes { font-family: 'Saira Stencil One', sans-serif; font-weight: 400; font-size: 200px; }
+      .a { fill: #ffffff; }
+      .b { fill: #ffb3ac; }
+      .badge { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 28px; fill: #ffb3ac; letter-spacing: 0.3em; }
+      .tag { font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 30px; fill: #e0bfbb; letter-spacing: 0.15em; }
+    </style>
+    <radialGradient id="bg-glow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f4625a" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#8d1518" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#131313" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="#131313"/>
+  <rect width="1024" height="1024" fill="url(#bg-glow)"/>
+  <text x="512" y="450" class="badge" text-anchor="middle">20. ROČNÍK • 2026</text>
+  <text x="512" y="600" class="tes" text-anchor="middle">
+    <tspan class="a">TES</tspan><tspan class="b">SHOW</tspan>
+  </text>
+  <text x="512" y="700" class="tag" text-anchor="middle">17. SEPTEMBER • RAJECKÉ TEPLICE</text>
+</svg>

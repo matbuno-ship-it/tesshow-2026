@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 140" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&amp;display=swap');
+      .tes { font-family: 'Saira Stencil One', sans-serif; font-weight: 400; font-size: 110px; }
+      .a { fill: #ffffff; }
+      .b { fill: #ffb3ac; }
+    </style>
+  </defs>
+  <text x="400" y="105" text-anchor="middle" class="tes">
+    <tspan class="a">TES</tspan><tspan class="b">SHOW</tspan>
+  </text>
+</svg>
