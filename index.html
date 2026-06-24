@@ -126,22 +126,36 @@ tailwind.config = {
   padding-right: 3rem;
   will-change: transform;
 }
+.logo-cloud-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  outline: none;
+}
+.logo-cloud-link:focus-visible {
+  outline: 2px solid #f4625a;
+  outline-offset: 3px;
+}
 .logo-cloud-img {
   height: 3rem;
   width: auto;
   max-width: 7rem;
-  pointer-events: none;
   user-select: none;
   background: white;
   border-radius: 0.5rem;
   padding: 0.4rem 0.75rem;
   opacity: 0.85;
-  transition: opacity 0.3s ease;
-  flex-shrink: 0;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   object-fit: contain;
+  cursor: pointer;
 }
-.logo-cloud-img:hover {
+.logo-cloud-link:hover .logo-cloud-img,
+.logo-cloud-link:focus-visible .logo-cloud-img {
   opacity: 1;
+  transform: scale(1.15);
+}
+.logo-cloud-link:active .logo-cloud-img {
+  transform: scale(1.05);
 }
 @media (min-width: 768px) {
   .logo-cloud-img { height: 3.5rem; max-width: 9rem; }
@@ -677,38 +691,38 @@ tailwind.config = {
     <div class="overflow-hidden py-4" style="-webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
       <div class="logo-cloud-track">
         <div class="logo-cloud-slide">
-          <img src="brand_assets/partners/partner-1.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-3.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-4.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-5.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-6.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-7.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-8.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-9.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-10.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-11.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-12.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-15.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-16.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-tesmedia.png" alt="TESMEDIA" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-dataway.png" alt="DATAWAY" class="logo-cloud-img">
+          <a href="https://fibrain.com/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="FIBRAIN"><img src="brand_assets/partners/partner-1.png" alt="FIBRAIN" class="logo-cloud-img"></a>
+          <a href="http://www.arpa.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="ARPA"><img src="brand_assets/partners/partner-3.png" alt="ARPA" class="logo-cloud-img"></a>
+          <a href="http://www.alfeus.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="ALFEUS"><img src="brand_assets/partners/partner-4.png" alt="ALFEUS" class="logo-cloud-img"></a>
+          <a href="https://www.micostelcom.com/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="MICOS TELCOM"><img src="brand_assets/partners/partner-5.png" alt="MICOS TELCOM" class="logo-cloud-img"></a>
+          <a href="https://www.ifcmedia.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="IFC Media"><img src="brand_assets/partners/partner-6.png" alt="IFC Media" class="logo-cloud-img"></a>
+          <a href="https://www.proficomms.eu/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="PROFICOMMS"><img src="brand_assets/partners/partner-7.png" alt="PROFICOMMS" class="logo-cloud-img"></a>
+          <a href="https://e.huawei.com/en/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="Huawei"><img src="brand_assets/partners/partner-8.png" alt="Huawei" class="logo-cloud-img"></a>
+          <a href="https://www.kelcom.cz/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="KELCOM INTERNATIONAL"><img src="brand_assets/partners/partner-9.png" alt="KELCOM INTERNATIONAL" class="logo-cloud-img"></a>
+          <a href="https://www.amcnetworks.com/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="AMC Networks"><img src="brand_assets/partners/partner-10.png" alt="AMC Networks" class="logo-cloud-img"></a>
+          <a href="https://sledovanitv.cz/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="sledovanitv.cz"><img src="brand_assets/partners/partner-11.png" alt="sledovanitv.cz" class="logo-cloud-img"></a>
+          <a href="https://www.4net.tv/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="4NET.TV"><img src="brand_assets/partners/partner-12.png" alt="4NET.TV" class="logo-cloud-img"></a>
+          <a href="https://halny.com/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="HALNY"><img src="brand_assets/partners/partner-15.png" alt="HALNY" class="logo-cloud-img"></a>
+          <a href="https://pk62.cz/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="PK 62 / LEO TV"><img src="brand_assets/partners/partner-16.png" alt="PK 62 / LEO TV" class="logo-cloud-img"></a>
+          <a href="https://tes-media.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="TESMEDIA"><img src="brand_assets/partners/partner-tesmedia.png" alt="TESMEDIA" class="logo-cloud-img"></a>
+          <a href="http://www.dataway.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="DATAWAY"><img src="brand_assets/partners/partner-dataway.png" alt="DATAWAY" class="logo-cloud-img"></a>
         </div>
         <div class="logo-cloud-slide" aria-hidden="true">
-          <img src="brand_assets/partners/partner-1.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-3.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-4.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-5.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-6.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-7.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-8.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-9.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-10.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-11.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-12.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-15.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-16.png" alt="Partner" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-tesmedia.png" alt="TESMEDIA" class="logo-cloud-img">
-          <img src="brand_assets/partners/partner-dataway.png" alt="DATAWAY" class="logo-cloud-img">
+          <a href="https://fibrain.com/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-1.png" alt="" class="logo-cloud-img"></a>
+          <a href="http://www.arpa.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-3.png" alt="" class="logo-cloud-img"></a>
+          <a href="http://www.alfeus.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-4.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.micostelcom.com/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-5.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.ifcmedia.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-6.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.proficomms.eu/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-7.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://e.huawei.com/en/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-8.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.kelcom.cz/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-9.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.amcnetworks.com/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-10.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://sledovanitv.cz/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-11.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.4net.tv/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-12.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://halny.com/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-15.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://pk62.cz/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-16.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://tes-media.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-tesmedia.png" alt="" class="logo-cloud-img"></a>
+          <a href="http://www.dataway.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-dataway.png" alt="" class="logo-cloud-img"></a>
         </div>
       </div>
     </div>
