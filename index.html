@@ -603,15 +603,24 @@ tailwind.config = {
         </div>
         <div>
           <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-checkin">Dátum príchodu</label>
-          <input type="date" id="acc-checkin" name="checkin" value="2026-09-17" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm [color-scheme:dark]">
+          <input type="date" id="acc-checkin" name="checkin" value="2026-09-17" min="2026-09-14" max="2026-09-21" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm [color-scheme:dark]">
         </div>
         <div>
           <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-checkout">Dátum odchodu</label>
-          <input type="date" id="acc-checkout" name="checkout" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm [color-scheme:dark]">
+          <input type="date" id="acc-checkout" name="checkout" min="2026-09-15" max="2026-09-22" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm [color-scheme:dark]">
         </div>
         <div class="md:col-span-2">
           <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-note">Poznámka</label>
           <textarea id="acc-note" name="note" rows="2" placeholder="Špeciálne požiadavky..." class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary/50 transition-colors font-body text-sm resize-none"></textarea>
+        </div>
+        <!-- Honeypot — pasca na botov. Človek tieto polia nikdy neuvidí ani na ne
+             neprejde tabulátorom; automat ich vyplní a odoslanie sa zahodí.
+             Zámerne NIE display:none — časť botov takto skryté polia preskakuje. -->
+        <div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">
+          <label for="acc-website">Webová stránka</label>
+          <input type="text" id="acc-website" name="website" tabindex="-1" autocomplete="off">
+          <label for="acc-company">Firma</label>
+          <input type="text" id="acc-company" name="company" tabindex="-1" autocomplete="off">
         </div>
         <div class="md:col-span-2">
           <button type="submit" id="acc-submit" class="w-full primary-gradient text-white py-4 rounded-xl font-headline font-bold uppercase tracking-widest atmospheric-glow hover:opacity-90 transition-all">Odoslať rezerváciu</button>
@@ -774,42 +783,78 @@ tailwind.config = {
 
 <!-- Accommodation Form Submit Script -->
 <script>
-document.getElementById('accommodation-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var btn = document.getElementById('acc-submit');
-  var success = document.getElementById('acc-success');
-  var error = document.getElementById('acc-error');
-  success.classList.add('hidden');
-  error.classList.add('hidden');
-  btn.textContent = 'Odosielam...';
-  btn.disabled = true;
-  btn.style.opacity = '0.5';
+(function() {
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbz9EB8PTyEOWOk5u3uXVLC2iIHal9SMKuGjj8NcPA0dO88rp5vOUUn38xIuxv8NBdXw/exec';
 
-  var params = new URLSearchParams({
-    name: document.getElementById('acc-name').value,
-    email: document.getElementById('acc-email').value,
-    phone: document.getElementById('acc-phone').value,
-    room: document.getElementById('acc-room').value,
-    persons: document.getElementById('acc-persons').value,
-    room_preference: document.getElementById('acc-room-pref').value,
-    checkin: document.getElementById('acc-checkin').value,
-    checkout: document.getElementById('acc-checkout').value,
-    note: document.getElementById('acc-note').value
+  // Musí byť rovnaký reťazec ako FORM_SECRET v apps-script-rezervacie.gs.
+  // Pri zmene meniť na oboch miestach naraz, inak prestane chodiť všetko.
+  var FORM_SECRET = 'tesshow26-a7f3c9';
+
+  var form = document.getElementById('accommodation-form');
+  var openedAt = Date.now();   // server overí, že vyplnenie trvalo aspoň 3 s
+
+  // djb2-xor — znak za znakom rovnaká funkcia ako sign() v Apps Scripte.
+  // Podpis sa počíta až pri odoslaní, takže bot s odchytenou URL ho nemá.
+  function sign(t) {
+    var s = FORM_SECRET + '|' + t;
+    var h = 5381;
+    for (var i = 0; i < s.length; i++) {
+      h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+    }
+    return h.toString(36);
+  }
+
+  function val(id) { return document.getElementById(id).value; }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('acc-submit');
+    var success = document.getElementById('acc-success');
+    var error = document.getElementById('acc-error');
+    success.classList.add('hidden');
+    error.classList.add('hidden');
+    btn.textContent = 'Odosielam...';
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+
+    var now = Date.now();
+    var params = new URLSearchParams({
+      name: val('acc-name'),
+      email: val('acc-email'),
+      phone: val('acc-phone'),
+      room: val('acc-room'),
+      persons: val('acc-persons'),
+      room_preference: val('acc-room-pref'),
+      checkin: val('acc-checkin'),
+      checkout: val('acc-checkout'),
+      note: val('acc-note'),
+      website: val('acc-website'),   // honeypot — u človeka vždy prázdne
+      company: val('acc-company'),   // honeypot
+      t: String(now),
+      sig: sign(now),
+      el: String(now - openedAt)     // ako dlho trvalo vyplnenie
+    });
+
+    // Parametre ideme poslať v tele aj v URL: Apps Script na /exec odpovedá
+    // presmerovaním a pri ňom sa telo POST-u môže stratiť. Backend spracúva
+    // obe metódy rovnako, takže rezervácia dorazí tak či tak.
+    fetch(ENDPOINT + '?' + params.toString(), {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: params.toString()
+    }).then(function() {
+      success.classList.remove('hidden');
+      form.reset();
+    }).catch(function() {
+      error.classList.remove('hidden');
+    }).finally(function() {
+      btn.textContent = 'Odoslať rezerváciu';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    });
   });
-
-  var url = 'https://script.google.com/macros/s/AKfycbzn6628fcM9_-Aog54gNG1OBIPcZxUPqKt8_8GcYtcnKtbaHs6PPFd-qWWUBaEy0WK6/exec?' + params.toString();
-
-  fetch(url, { mode: 'no-cors' }).then(function() {
-    success.classList.remove('hidden');
-    e.target.reset();
-  }).catch(function() {
-    error.classList.remove('hidden');
-  }).finally(function() {
-    btn.textContent = 'Odoslať rezerváciu';
-    btn.disabled = false;
-    btn.style.opacity = '1';
-  });
-});
+})();
 </script>
 
 <!-- Mobile Menu Script -->
