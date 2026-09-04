@@ -436,28 +436,6 @@ tailwind.config = {
       <!-- Prednáška -->
       <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-3 p-6 bg-surface-container-low rounded-xl ghost-border hover:bg-surface-container transition-all">
         <div class="md:col-span-9">
-          <h4 class="text-lg md:text-xl font-headline font-bold text-white uppercase">Novinky v oblasti vývoja a návrhu realizácií rádioreléových spojov Ceragon</h4>
-          <p class="text-on-surface-variant text-sm mt-1">Ľuboš Parízek — ARPA, s. r. o.</p>
-        </div>
-        <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">ARPA</span>
-        </div>
-      </div>
-
-      <!-- Prednáška -->
-      <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-3 p-6 bg-surface-container-low rounded-xl ghost-border hover:bg-surface-container transition-all">
-        <div class="md:col-span-9">
-          <h4 class="text-lg md:text-xl font-headline font-bold text-white uppercase">Klíčový obsah, cena a konkurenceschopnost</h4>
-          <p class="text-on-surface-variant text-sm mt-1">Robert Beránek — Canal+ Distribution Czech Republic s.r.o.</p>
-        </div>
-        <div class="md:col-span-3 flex md:justify-end">
-          <span class="px-4 py-1 rounded bg-surface-container-highest text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">CANAL+</span>
-        </div>
-      </div>
-
-      <!-- Prednáška -->
-      <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-3 p-6 bg-surface-container-low rounded-xl ghost-border hover:bg-surface-container transition-all">
-        <div class="md:col-span-9">
           <h4 class="text-lg md:text-xl font-headline font-bold text-white uppercase">E-faktúra u ISP</h4>
           <p class="text-on-surface-variant text-sm mt-1">Július Rebeťák — ALFEUS, spol. s.r.o.</p>
         </div>
@@ -538,22 +516,11 @@ tailwind.config = {
         <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
           Ubytovanie nie je zahrnuté v cene vstupenky. Kontakt: <a href="mailto:fabulova@tes-slovakia.sk" class="text-primary hover:underline">fabulova@tes-slovakia.sk</a>
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="p-4 bg-surface-container rounded-xl ghost-border text-center">
-            <span class="text-2xl font-headline font-black text-primary">120 €</span>
-            <p class="text-[11px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
-            <p class="text-xs text-white font-headline uppercase mt-2">Palace — Dvojlôžková</p>
-            <p class="text-[11px] text-on-surface-variant mt-1">ďalšia osoba 75 €</p>
-          </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div class="p-4 bg-surface-container rounded-xl ghost-border text-center">
             <span class="text-2xl font-headline font-black text-primary">185 €</span>
             <p class="text-[11px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
             <p class="text-xs text-white font-headline uppercase mt-2">Palace — Jednolôžková</p>
-          </div>
-          <div class="p-4 bg-surface-container rounded-xl ghost-border text-center">
-            <span class="text-2xl font-headline font-black text-primary">120 €</span>
-            <p class="text-[11px] text-on-surface-variant uppercase font-label tracking-widest mt-1">/ os / noc</p>
-            <p class="text-xs text-white font-headline uppercase mt-2">Aphrodite — Jednolôžková</p>
           </div>
         </div>
       </div>
@@ -584,9 +551,7 @@ tailwind.config = {
           <label class="block text-xs uppercase tracking-widest text-on-surface-variant font-label mb-2" for="acc-room">Typ izby</label>
           <select id="acc-room" name="room" required class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors font-body text-sm appearance-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a88a87%22 stroke-width=%222%22><polyline points=%226 9 12 15 18 9%22/></svg>'); background-repeat: no-repeat; background-position: right 1rem center;">
             <option value="" disabled selected class="bg-[#1c1b1b]">Vyberte typ izby</option>
-            <option value="double-palace" class="bg-[#1c1b1b]">Palace — Dvojlôžková izba (120 €/os/noc)</option>
             <option value="single-palace" class="bg-[#1c1b1b]">Palace — Jednolôžková izba (185 €/os/noc)</option>
-            <option value="single-aphrodite" class="bg-[#1c1b1b]">Aphrodite — Jednolôžková izba (120 €/os/noc)</option>
           </select>
         </div>
         <div>
@@ -728,6 +693,7 @@ tailwind.config = {
           <a href="https://www.aksamec.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="Samec &amp; partners"><img src="brand_assets/partners/partner-samec.webp" alt="Samec &amp; partners" class="logo-cloud-img"></a>
           <a href="https://www.ssd.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="Stredoslovenská distribučná"><img src="brand_assets/partners/partner-ssd.svg" alt="Stredoslovenská distribučná" class="logo-cloud-img"></a>
           <a href="https://www.solarix.cz/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="SOLARIX"><img src="brand_assets/partners/logo_solarix.png" alt="SOLARIX" class="logo-cloud-img"></a>
+          <a href="https://www.vnet.sk/" target="_blank" rel="noopener" class="logo-cloud-link" aria-label="VNET"><img src="brand_assets/partners/VNET_white.9210692be237.svg" alt="VNET" class="logo-cloud-img logo-cloud-img--invert"></a>
         </div>
         <div class="logo-cloud-slide" aria-hidden="true">
           <a href="https://fibrain.com/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-1.png" alt="" class="logo-cloud-img"></a>
@@ -750,6 +716,7 @@ tailwind.config = {
           <a href="https://www.aksamec.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-samec.webp" alt="" class="logo-cloud-img"></a>
           <a href="https://www.ssd.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/partner-ssd.svg" alt="" class="logo-cloud-img"></a>
           <a href="https://www.solarix.cz/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/logo_solarix.png" alt="" class="logo-cloud-img"></a>
+          <a href="https://www.vnet.sk/" target="_blank" rel="noopener" tabindex="-1" class="logo-cloud-link"><img src="brand_assets/partners/VNET_white.9210692be237.svg" alt="" class="logo-cloud-img logo-cloud-img--invert"></a>
         </div>
       </div>
     </div>
