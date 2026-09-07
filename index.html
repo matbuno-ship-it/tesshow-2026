@@ -902,9 +902,14 @@ menuBtn.addEventListener('click', function() {
   var slides = track.querySelectorAll('.logo-cloud-slide');
   if (slides.length < 2) return;
 
-  var speed = 0.5; // px per frame (normal)
-  var targetSpeed = 0.5;
-  var slowSpeed = 0.12; // px per frame (hover)
+  // 1.5 px/snímku ≈ 90 px/s — jedno kolo cez všetkých partnerov trvá ~39 s.
+  // Pri pôvodných 0.5 px trvalo kolo 117 s a rad pôsobil nehybne, takže
+  // poslední partneri v poradí sa fakticky nedostali divákovi na oči.
+  var NORMAL_SPEED = 1.5; // px per frame
+  var HOVER_SPEED  = 0.5; // px per frame — tretinové tempo, aby sa dalo pohodlne kliknúť
+
+  var speed = NORMAL_SPEED;
+  var targetSpeed = NORMAL_SPEED;
   var pos = 0;
   var slideWidth = slides[0].scrollWidth;
 
@@ -917,8 +922,8 @@ menuBtn.addEventListener('click', function() {
     requestAnimationFrame(tick);
   }
 
-  track.addEventListener('mouseenter', function() { targetSpeed = slowSpeed; });
-  track.addEventListener('mouseleave', function() { targetSpeed = 0.5; });
+  track.addEventListener('mouseenter', function() { targetSpeed = HOVER_SPEED; });
+  track.addEventListener('mouseleave', function() { targetSpeed = NORMAL_SPEED; });
 
   requestAnimationFrame(tick);
 })();
