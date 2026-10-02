@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TES Show 2026 — nálepky tombola (12 cien, 3 × A4)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+<style>
+  /*
+   * 12 nálepiek na 3 hárkoch A4 na výšku, na každom mriežka 2 × 2.
+   * Jedna nálepka = 105 × 148,5 mm. Tlačiť v mierke 100 %, bez
+   * prispôsobenia na stránku.
+   *
+   * Počet cien sa mení priamo v tele dokumentu — každá nálepka je
+   * jeden blok .nalepka. Rozmery a farby sú premenné nižšie.
+   *
+   * Logá sú originálne PNG z brand_assets, nijako neupravované —
+   * len sa zmenšujú so zachovaným pomerom strán.
+   */
+  :root {
+    --koralova: #f4625a;   /* akcent TES Show (primary-container na webe) */
+    --tmava:    #131313;   /* text — rovnaká ako tmavý podklad webu */
+    --rez:      #dcdcdc;   /* jemná deliaca čiara medzi nálepkami */
+    --znacka:   #9a9a9a;   /* orezové značky na okrajoch hárku */
+
+    --velkost-ceny:  19.3mm;  /* výška písma „1. CENA" — nastavené tak, aby aj
+                                 najširšie „12. CENA" zostalo v bezpečnej zóne */
+    --sirka-wordmark:  56mm;  /* šírka wordmarku TESSHOW */
+    --sirka-loga:      36mm;  /* šírka loga TES Slovakia */
+    --okraj-nalepky:   11mm;  /* bezpečná zóna od okraja každej nálepky */
+  }
+
+  @page { size: A4 portrait; margin: 0; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: #8a8a8a;
+    padding: 16px 0;
+    font-family: 'Saira Stencil One', sans-serif;
+  }
+
+  .harok {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto 16px;
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 105mm 105mm;
+    grid-template-rows: 148.5mm 148.5mm;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(0,0,0,.35);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Deliace čiary ── veľmi jemné, cez celý hárok, presne v strede */
+  .harok::before, .harok::after {
+    content: '';
+    position: absolute;
+    background: var(--rez);
+    z-index: 1;
+    pointer-events: none;
+  }
+  .harok::before { left: calc(105mm - 0.125mm); top: 0; width: 0.25mm; height: 297mm; }   /* zvislá */
+  .harok::after  { top: calc(148.5mm - 0.125mm); left: 0; height: 0.25mm; width: 210mm; } /* vodorovná */
+
+  /* ── Orezové značky ── 5 mm dlhé, len pri okrajoch hárku.
+       Vlastný absolútne umiestnený blok, aby nezaberal miesto v mriežke. */
+  .znacky { position: absolute; inset: 0; pointer-events: none; }
+  .znacky span {
+    position: absolute;
+    background: var(--znacka);
+    z-index: 2;
+  }
+  .znacky .h1 { left: calc(105mm - 0.15mm); top: 0;    width: 0.3mm; height: 5mm; }
+  .znacky .h2 { left: calc(105mm - 0.15mm); bottom: 0; width: 0.3mm; height: 5mm; }
+  .znacky .v1 { top: calc(148.5mm - 0.15mm); left: 0;  height: 0.3mm; width: 5mm; }
+  .znacky .v2 { top: calc(148.5mm - 0.15mm); right: 0; height: 0.3mm; width: 5mm; }
+
+  /* ── Jedna nálepka ── */
+  .nalepka {
+    position: relative;
+    padding: var(--okraj-nalepky);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cena {
+    font-size: var(--velkost-ceny);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--tmava);
+    white-space: nowrap;
+    margin-top: -6mm;   /* optický posun: skupina cena + wordmark sedí mierne nad stredom, logo drží spodok */
+  }
+  .cena em {
+    font-style: normal;
+    color: var(--koralova);
+  }
+
+  .wordmark {
+    display: block;
+    width: var(--sirka-wordmark);
+    height: auto;
+    margin-top: 9mm;
+  }
+
+  .logo-tes {
+    position: absolute;
+    left: 50%;
+    bottom: var(--okraj-nalepky);
+    transform: translateX(-50%);
+    display: block;
+    width: var(--sirka-loga);
+    height: auto;
+  }
+
+  @media print {
+    body { background: none; padding: 0; }
+    .harok {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+      break-after: page;
+    }
+    /* posledný hárok bez zalomenia, inak vypadne prázdna štvrtá strana */
+    .harok:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HÁROK 1 — ceny 1 až 4 ════════ -->
+<div class="harok">
+  <div class="znacky"><span class="h1"></span><span class="h2"></span><span class="v1"></span><span class="v2"></span></div>
+
+  <div class="nalepka">
+    <div class="cena"><em>1.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>2.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>3.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>4.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+</div>
+
+<!-- ════════ HÁROK 2 — ceny 5 až 8 ════════ -->
+<div class="harok">
+  <div class="znacky"><span class="h1"></span><span class="h2"></span><span class="v1"></span><span class="v2"></span></div>
+
+  <div class="nalepka">
+    <div class="cena"><em>5.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>6.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>7.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>8.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+</div>
+
+<!-- ════════ HÁROK 3 — ceny 9 až 12 ════════ -->
+<div class="harok">
+  <div class="znacky"><span class="h1"></span><span class="h2"></span><span class="v1"></span><span class="v2"></span></div>
+
+  <div class="nalepka">
+    <div class="cena"><em>9.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>10.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>11.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka">
+    <div class="cena"><em>12.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+</div>
+
+<!-- ════════ HÁROK 4 — cena 13 ════════
+     Trinásta cena nevypĺňa celý hárok. Mriežka aj rezné čiary zostávajú
+     rovnaké, aby sa rezalo úplne rovnako ako pri predchádzajúcich hárkoch;
+     tri zvyšné štvrtiny sú prázdne. Ak pribudnú ceny 14 až 16, stačí
+     do prázdnych blokov doplniť obsah podľa vzoru vyššie. -->
+<div class="harok">
+  <div class="znacky"><span class="h1"></span><span class="h2"></span><span class="v1"></span><span class="v2"></span></div>
+
+  <div class="nalepka">
+    <div class="cena"><em>13.</em> CENA</div>
+    <img class="wordmark" src="brand_assets/logos/wordmark-light.png" alt="TESSHOW" />
+    <img class="logo-tes" src="brand_assets/logos/tes-slovakia-logo-transparent.png" alt="TES Slovakia" />
+  </div>
+
+  <div class="nalepka"></div>
+  <div class="nalepka"></div>
+  <div class="nalepka"></div>
+</div>
+
+</body>
+</html>

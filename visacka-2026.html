@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TESSHOW 2026 — visačka</title>
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Farby zo stránky tesshow.sk — rovnaké tokeny ako index.html */
+    --podklad:  #131313;  /* background */
+    --koralova: #f4625a;  /* primary-container, plné plochy a tlačidlá */
+    --ruzova:   #e0bfbb;  /* on-surface-variant, sekundárny text */
+    --biela:    #ffffff;
+  }
+
+  /* Karta 100 x 130 mm (10 x 13 cm). */
+  @page {
+    size: 100mm 130mm;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: #6f6f6f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Manrope', system-ui, sans-serif;
+  }
+
+  .visacka {
+    width: 100mm;
+    height: 130mm;
+    background: var(--podklad);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    /* Bez tohto prehliadače pri tlači tmavé plochy vynechajú */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Značka ── */
+  .znacka {
+    margin-top: 17mm;
+    font-family: 'Saira Stencil One', 'Space Grotesk', sans-serif;
+    font-size: 14mm;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--biela);
+  }
+  .znacka em {
+    font-style: normal;
+    color: var(--koralova);
+  }
+
+  /* ── Dátum ── */
+  .datum {
+    margin-top: 6mm;
+    font-size: 3.4mm;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--koralova);
+    /* letter-spacing pridáva medzeru aj za posledné písmeno */
+    text-indent: 0.32em;
+  }
+
+  /* ── Koralový pás s menom ── */
+  /* Výška je zámerne pevná, nie podľa obsahu. Pri dlhšom názve firmy by
+     pás inak narástol a posunul sa nahor — vo várke by potom mala každá
+     visačka pás inde. Takto sedí rovnako na všetkých. */
+  .pas {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: 51mm;
+    background: var(--koralova);
+    padding: 5mm 7mm;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .meno {
+    font-weight: 800;
+    font-size: 11mm;
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    color: var(--podklad);
+  }
+  .firma {
+    margin-top: 3mm;
+    font-weight: 500;
+    font-size: 6mm;
+    line-height: 1.2;
+    color: var(--podklad);
+    opacity: 0.72;
+  }
+
+  /* ── Pätička ── */
+  .web {
+    margin-bottom: 11mm;
+    font-size: 4mm;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: lowercase;
+    color: var(--ruzova);
+    text-indent: 0.14em;
+  }
+
+  @media print {
+    body {
+      background: none;
+      display: block;
+      padding: 0;
+      min-height: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="visacka">
+    <div class="znacka">TES<em>SHOW</em></div>
+    <div class="datum">17. september 2026</div>
+
+    <div class="pas">
+      <div class="meno">Priezvisko<br />Meno</div>
+      <div class="firma">Názov firmy</div>
+    </div>
+
+    <div class="web">tesshow.sk</div>
+  </div>
+
+</body>
+</html>

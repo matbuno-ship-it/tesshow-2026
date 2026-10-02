@@ -1,3 +1,13 @@
 node_modules/
 temporary screenshots/
 .cache/
+
+.vercel
+
+# Artefakty HP Sure Click (neverzovane)
+~BROMIUM/
+
+# Lokalne podklady (neverzovane)
+led-obrazovka/
+tesshow-2026-podklady/
+tesshow-2026-podklady.zip
